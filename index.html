@@ -21,8 +21,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #ddd;
       flex-wrap: wrap;
+      border-bottom: 1px solid #ddd;
     }
     header nav {
       display: flex;
@@ -88,6 +88,27 @@
     .sosmed-links a.tiktok { background: #000; }
     .sosmed-links a.youtube { background: #FF0000; }
 
+    button.edit-btn {
+      margin-top: 15px;
+      padding: 6px 12px;
+      border: none;
+      background: #444;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+
+    button.edit-btn:hover {
+      background-color: #666;
+    }
+
+    [contenteditable="true"] {
+      outline: 2px dashed #aaa;
+      padding: 5px;
+      border-radius: 5px;
+    }
+
     @media screen and (max-width: 768px) {
       header {
         flex-direction: column;
@@ -99,9 +120,6 @@
       }
       section {
         padding: 20px;
-      }
-      .home-text p {
-        font-size: 1em;
       }
     }
   </style>
@@ -122,32 +140,39 @@
     <div class="home-container">
       <img src="luk.jpg" alt="Khilwa Nurse" class="home-img" />
       <div class="home-text">
-        <h2>Kegiatan Seorang Perawat</h2>
-        <p>Perawat adalah garda terdepan dalam pelayanan kesehatan. Di blog ini, Khilwa berbagi kegiatan sehari-hari sebagai mahasiswa keperawatan: praktik klinik, edukasi pasien, pengalaman merawat pasien anak hingga lanjut usia, serta kegiatan sosial di masyarakat.</p>
+        <h2 contenteditable="false">Kegiatan Seorang Perawat</h2>
+        <p contenteditable="false">
+          Perawat adalah garda terdepan dalam pelayanan kesehatan. Di blog ini, Khilwa berbagi kegiatan sehari-hari sebagai mahasiswa keperawatan: praktik klinik, edukasi pasien, pengalaman merawat pasien anak hingga lanjut usia, serta kegiatan sosial di masyarakat.
+        </p>
+        <button class="edit-btn" onclick="toggleEdit(this)">Edit</button>
       </div>
     </div>
   </section>
 
   <section id="cv" class="cv-content hidden">
-    <h2>Curriculum Vitae</h2>
-    <p><strong>Nama:</strong> Khilwa Luluk Atul Khumairoh</p>
-    <p><strong>Pendidikan:</strong> S1 Keperawatan - Universitas Kesehatan Nusantara</p>
-    <p><strong>Pengalaman:</strong> Magang di RSUD Kota Sehat, Relawan Covid-19, Seminar Gizi dan Kesehatan Mental</p>
+    <h2 contenteditable="false">Curriculum Vitae</h2>
+    <p contenteditable="false"><strong>Nama:</strong> Khilwa Luluk Atul Khumairoh</p>
+    <p contenteditable="false"><strong>Pendidikan:</strong> S1 Keperawatan - Universitas Kesehatan Nusantara</p>
+    <p contenteditable="false"><strong>Pengalaman:</strong> Magang di RSUD Kota Sehat, Relawan Covid-19, Seminar Gizi dan Kesehatan Mental</p>
+    <button class="edit-btn" onclick="toggleEdit(this)">Edit</button>
   </section>
 
   <section id="blog" class="blog-content hidden">
-    <h2>Tulisan Khilwa</h2>
-    <p>Temukan artikel dan catatan refleksi Khilwa seputar dunia keperawatan, tips manajemen waktu untuk mahasiswa, serta pandangan pribadi tentang pentingnya empati dalam pelayanan kesehatan.</p>
+    <h2 contenteditable="false">Tulisan Khilwa</h2>
+    <p contenteditable="false">Temukan artikel dan catatan refleksi Khilwa seputar dunia keperawatan, tips manajemen waktu untuk mahasiswa, serta pandangan pribadi tentang pentingnya empati dalam pelayanan kesehatan.</p>
+    <button class="edit-btn" onclick="toggleEdit(this)">Edit</button>
   </section>
 
   <section id="sosmed" class="sosmed-content hidden">
-    <h2>Temui Saya di Sosmed</h2>
+    <h2 contenteditable="false">Temui Saya di Sosmed</h2>
+    <p contenteditable="false">Klik tombol di bawah untuk mengunjungi akun sosial media saya.</p>
     <div class="sosmed-links">
       <a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a>
       <a href="https://instagram.com/khilwa.nurse" class="ig" target="_blank">Instagram</a>
       <a href="https://tiktok.com/@khilwa.nurse" class="tiktok" target="_blank">TikTok</a>
       <a href="https://youtube.com/@khilwanurse" class="youtube" target="_blank">YouTube</a>
     </div>
+    <button class="edit-btn" onclick="toggleEdit(this)">Edit</button>
   </section>
 
   <script>
@@ -157,6 +182,18 @@
         document.getElementById(sec).classList.add('hidden');
       });
       document.getElementById(id).classList.remove('hidden');
+    }
+
+    function toggleEdit(button) {
+      const parent = button.parentElement;
+      const elements = parent.querySelectorAll('[contenteditable]');
+      const editing = elements[0].getAttribute('contenteditable') === 'true';
+
+      elements.forEach(el => {
+        el.setAttribute('contenteditable', !editing);
+      });
+
+      button.textContent = editing ? 'Edit' : 'Simpan';
     }
   </script>
 
