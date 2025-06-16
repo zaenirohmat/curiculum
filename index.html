@@ -20,7 +20,6 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #ddd;
-      flex-wrap: wrap;
     }
 
     .logo {
@@ -38,19 +37,44 @@
       text-decoration: none;
       color: #444;
       font-weight: 600;
+      font-size: 0.95em;
       cursor: pointer;
     }
 
     section {
-      padding: 30px 20px;
+      padding: 40px 60px;
     }
 
     .hidden {
       display: none;
     }
 
-    .home-content p, .cv-content p, .blog-content p, .sosmed-content p {
-      font-size: 1.1em;
+    .home-layout {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .home-layout img {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .home-text {
+      max-width: 600px;
+      flex: 1;
+    }
+
+    .home-text h2 {
+      margin-top: 0;
+    }
+
+    .home-text p {
+      font-size: 1em;
       line-height: 1.6;
     }
 
@@ -77,7 +101,7 @@
     .sosmed-links a.tiktok { background: #000; }
     .sosmed-links a.youtube { background: #FF0000; }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       header {
         flex-direction: column;
         align-items: flex-start;
@@ -91,6 +115,15 @@
 
       section {
         padding: 20px 15px;
+      }
+
+      .home-layout {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .home-text p {
+        font-size: 0.95em;
       }
 
       .sosmed-links a {
@@ -107,13 +140,18 @@
       <a onclick="showSection('home')">Home</a>
       <a onclick="showSection('cv')">Profil</a>
       <a onclick="showSection('blog')">Tulisan</a>
-      <a onclick="showSection('sosmed')">Sosmed</a>
+      <a onclick="showSection('sosmed')">Akun Sosmed</a>
     </nav>
   </header>
 
   <section id="home" class="home-content">
-    <h2>Kegiatan Seorang Perawat</h2>
-    <p>Perawat adalah garda terdepan dalam pelayanan kesehatan. Di blog ini, Khilwa berbagi kegiatan sehari-hari sebagai mahasiswa keperawatan: praktik klinik, edukasi pasien, pengalaman merawat pasien anak hingga lanjut usia, serta kegiatan sosial di masyarakat.</p>
+    <div class="home-layout">
+      <img src="gambar.jpg" alt="Foto Khilwa" />
+      <div class="home-text">
+        <h2>Kegiatan Seorang Perawat</h2>
+        <p>Perawat adalah garda terdepan dalam pelayanan kesehatan. Di blog ini, Khilwa berbagi kegiatan sehari-hari sebagai mahasiswa keperawatan: praktik klinik, edukasi pasien, pengalaman merawat pasien anak hingga lanjut usia, serta kegiatan sosial di masyarakat.</p>
+      </div>
+    </div>
   </section>
 
   <section id="cv" class="cv-content hidden">
