@@ -1,145 +1,172 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CV - Khilwa Luluk Atul Khumairoh</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backpack Travelers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #e0f7fa, #ffffff);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: #fffdfc;
+      color: #333;
     }
 
-    .cv-container {
-      background: #ffffff;
-      max-width: 850px;
-      width: 90%;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      animation: slideIn 1s ease;
-    }
-
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .profile-container {
+    header {
+      background: #f5ede6;
+      padding: 20px 50px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      border-bottom: 2px solid #e0f2f1;
-      padding-bottom: 20px;
-      margin-bottom: 25px;
+      border-bottom: 1px solid #ddd;
     }
 
-    .profile-text h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #0277bd;
-    }
-
-    .profile-text h2 {
-      font-size: 1.1rem;
+    header nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #444;
       font-weight: 600;
-      color: #00796b;
-      margin: 10px 0 5px;
     }
 
-    .profile-text p {
-      color: #555;
-      margin-bottom: 6px;
+    .logo {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8em;
+      color: #222;
     }
 
-    .profile-container img {
-      width: 130px;
-      height: 130px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid #b2ebf2;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    .subtext {
+      text-align: center;
+      font-size: 0.9em;
+      letter-spacing: 1px;
+      color: #888;
+      margin-top: -10px;
     }
 
-    h2.section-title {
-      font-size: 1.4rem;
-      color: #006064;
-      border-left: 5px solid #4dd0e1;
-      padding-left: 10px;
+    .features {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .features div {
+      text-align: center;
+      font-size: 0.95em;
+      color: #666;
+    }
+
+    .features img {
+      width: 50px;
+      height: 50px;
       margin-bottom: 10px;
     }
 
-    .section {
-      margin-bottom: 25px;
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 0 50px 50px;
     }
 
-    .section p {
-      color: #333;
-      line-height: 1.6;
+    .gallery-item {
+      text-align: center;
     }
 
-    .social-icons {
-      margin-top: 10px;
+    .gallery-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
     }
 
-    .social-icons a {
-      text-decoration: none;
-      color: #0288d1;
-      margin-right: 12px;
-      font-size: 1.2rem;
-      transition: color 0.3s ease;
+    .label {
+      font-size: 0.8em;
+      color: #fff;
+      background: #c9a57b;
+      display: inline-block;
+      margin-top: 8px;
+      padding: 2px 8px;
+      border-radius: 5px;
     }
 
-    .social-icons a:hover {
-      color: #01579b;
+    .caption {
+      margin-top: 5px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+      }
+
+      .gallery-item img {
+        height: 200px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="cv-container">
-    <div class="profile-container">
-      <div class="profile-text">
-        <h1>KHILWA LULUK ATUL KHUMAIROH</h1>
-        <h2>Informasi Kontak</h2>
-        <p>Email: khilwa.luluk@example.com</p>
-        <p>Telepon: 0896-1234-5678</p>
-        <div class="social-icons">
-          <a href="#" title="Instagram">📷</a>
-          <a href="#" title="LinkedIn">🔗</a>
-          <a href="#" title="Facebook">📘</a>
-        </div>
-      </div>
-      <img src="foto-khilwa.jpg" alt="Foto Khilwa">
-    </div>
 
-    <div class="section">
-      <h2 class="section-title">Pendidikan</h2>
-      <p><strong>D3 Keperawatan</strong> – Akademi Keperawatan Sehat Mulia, 2022</p>
-    </div>
+  <header>
+    <div class="logo">Backpack Travelers</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Travel</a>
+      <a href="#">Blog</a>
+      <a href="#">Shop</a>
+    </nav>
+  </header>
 
-    <div class="section">
-      <h2 class="section-title">Pengalaman Praktik</h2>
-      <p><strong>Praktik Klinik Keperawatan Dasar</strong> – Puskesmas Kota, 2022</p>
-      <p><strong>Praktik Klinik Keperawatan Medikal Bedah</strong> – RSUD Sehat Selalu, 2023</p>
-    </div>
+  <div class="subtext">NEVER ENDING FOOTSTEPS</div>
 
-    <div class="section">
-      <h2 class="section-title">Organisasi & Kegiatan</h2>
-      <p><strong>Himpunan Mahasiswa Keperawatan</strong> – Koordinator Divisi Kesehatan Masyarakat, 2023</p>
-      <p><strong>Volunteering</strong> – Aksi Sosial Imunisasi & Edukasi Gizi Anak, 2022–2024</p>
+  <section class="features">
+    <div>
+      <img src="https://img.icons8.com/ios-glyphs/60/coffee.png" alt="Get Inspired">
+      <p>Get Inspired</p>
     </div>
-  </div>
+    <div>
+      <img src="https://img.icons8.com/ios-glyphs/60/todo-list.png" alt="My Books">
+      <p>My Books</p>
+    </div>
+    <div>
+      <img src="https://img.icons8.com/ios-filled/60/map.png" alt="Travel Guides">
+      <p>Travel Guides</p>
+    </div>
+    <div>
+      <img src="https://img.icons8.com/ios-filled/60/about.png" alt="About Me">
+      <p>About Me</p>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <div class="gallery-item">
+      <img src="https://source.unsplash.com/400x400/?woman,donkey" alt="Brazil Village">
+      <div class="label">CANADA</div>
+      <div class="caption">Villages in the Brazil</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://source.unsplash.com/400x400/?puppy,dog" alt="Brazil Budget">
+      <div class="label">BRAZIL</div>
+      <div class="caption">A Guide for Budget</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://source.unsplash.com/400x400/?mountain,lake" alt="Perth Sports">
+      <div class="label">PERTH</div>
+      <div class="caption">Top 10 Popular Sports</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://source.unsplash.com/400x400/?fruit,bowl" alt="Food Tour">
+      <div class="label">PARIS</div>
+      <div class="caption">Eating Food Tour! 😍</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://source.unsplash.com/400x400/?eiffel,tower" alt="Paris Guide">
+      <div class="label">PARIS</div>
+      <div class="caption">The Essential Paris</div>
+    </div>
+  </section>
+
 </body>
 </html>
