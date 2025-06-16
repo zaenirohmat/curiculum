@@ -12,26 +12,28 @@
       background: #fff;
       color: #333;
     }
+
     header {
       background: #f5ede6;
       padding: 20px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
       border-bottom: 1px solid #ddd;
+      flex-wrap: wrap;
     }
+
     .logo {
       font-family: 'Great Vibes', cursive;
       font-size: 2em;
       color: #222;
-      margin-bottom: 10px;
     }
+
     nav {
       display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
+      gap: 20px;
     }
+
     nav a {
       text-decoration: none;
       color: #444;
@@ -75,28 +77,16 @@
     .sosmed-links a.tiktok { background: #000; }
     .sosmed-links a.youtube { background: #FF0000; }
 
-    /* Responsif untuk layar kecil */
     @media (max-width: 600px) {
       header {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      .logo {
-        font-size: 1.8em;
-        margin-bottom: 10px;
-      }
-
       nav {
+        align-self: flex-end;
         flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-      }
-
-      nav a {
-        padding: 10px 0;
-        border-bottom: 1px solid #ddd;
-        width: 100%;
+        gap: 10px;
       }
 
       section {
@@ -117,7 +107,7 @@
       <a onclick="showSection('home')">Home</a>
       <a onclick="showSection('cv')">Profil</a>
       <a onclick="showSection('blog')">Tulisan</a>
-      <a onclick="showSection('sosmed')">Akun Sosmed</a>
+      <a onclick="showSection('sosmed')">Sosmed</a>
     </nav>
   </header>
 
