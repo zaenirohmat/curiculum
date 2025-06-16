@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Khilwa Nurse Blog</title>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
@@ -40,85 +38,15 @@
       font-size: 2.5em;
       color: #222;
     }
-    section {
+    #content {
       padding: 40px 60px;
     }
-    .hidden {
-      display: none;
-    }
-
-    .home-container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 30px;
-    }
-
-    .home-img {
-      max-width: 400px;
-      width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    .home-text {
-      flex: 1;
-      min-width: 250px;
-    }
-
-    .home-text p,
-    .cv-content p,
-    .blog-content p,
-    .sosmed-content p {
-      font-size: 1.1em;
-      line-height: 1.6;
-    }
-
-    .sosmed-links a {
-      display: inline-block;
-      margin: 10px 20px 10px 0;
-      text-decoration: none;
-      color: #fff;
-      background: #25d366;
-      padding: 10px 15px;
-      border-radius: 5px;
-    }
-
-    .sosmed-links a.ig { background: #E1306C; }
-    .sosmed-links a.tiktok { background: #000; }
-    .sosmed-links a.youtube { background: #FF0000; }
-
-    button.edit-btn {
-      margin-top: 15px;
-      padding: 6px 12px;
-      border: none;
-      background: #444;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 0.9em;
-    }
-
-    button.edit-btn:hover {
-      background-color: #666;
-    }
-
-    [contenteditable="true"] {
-      outline: 2px dashed #aaa;
-      padding: 5px;
-      border-radius: 5px;
-    }
-
     @media screen and (max-width: 768px) {
       header {
         flex-direction: column;
         align-items: flex-start;
       }
-      .home-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      section {
+      #content {
         padding: 20px;
       }
     }
@@ -129,71 +57,24 @@
   <header>
     <div class="logo">Khilwa Nurse Blog</div>
     <nav>
-      <a onclick="showSection('home')">Home</a>
-      <a onclick="showSection('cv')">Profil</a>
-      <a onclick="showSection('blog')">Tulisan</a>
-      <a onclick="showSection('sosmed')">Akun Sosmed</a>
+      <a onclick="loadSection('home.html')">Home</a>
+      <a onclick="loadSection('cv.html')">Profil</a>
+      <a onclick="loadSection('blog.html')">Tulisan</a>
+      <a onclick="loadSection('sosmed.html')">Akun Sosmed</a>
     </nav>
   </header>
 
-  <section id="home" class="home-content">
-    <div class="home-container">
-      <img src="luk.jpg" alt="Khilwa Nurse" class="home-img" />
-      <div class="home-text">
-        <h2 contenteditable="false">Kegiatan Seorang Perawat</h2>
-        <p contenteditable="false">
-          Perawat adalah garda terdepan dalam pelayanan kesehatan. Di blog ini, Khilwa berbagi kegiatan sehari-hari sebagai mahasiswa keperawatan: praktik klinik, edukasi pasien, pengalaman merawat pasien anak hingga lanjut usia, serta kegiatan sosial di masyarakat.
-        </p>
-        <button class="edit-btn" onclick="toggleEdit(this)">Edit</button>
-      </div>
-    </div>
-  </section>
-
-  <section id="cv" class="cv-content hidden">
-    <h2 contenteditable="false">Curriculum Vitae</h2>
-    <p contenteditable="false"><strong>Nama:</strong> Khilwa Luluk Atul Khumairoh</p>
-    <p contenteditable="false"><strong>Pendidikan:</strong> S1 Keperawatan - Universitas Kesehatan Nusantara</p>
-    <p contenteditable="false"><strong>Pengalaman:</strong> Magang di RSUD Kota Sehat, Relawan Covid-19, Seminar Gizi dan Kesehatan Mental</p>
-    <button class="edit-btn" onclick="toggleEdit(this)">Edit</button>
-  </section>
-
-  <section id="blog" class="blog-content hidden">
-    <h2 contenteditable="false">Tulisan Khilwa</h2>
-    <p contenteditable="false">Temukan artikel dan catatan refleksi Khilwa seputar dunia keperawatan, tips manajemen waktu untuk mahasiswa, serta pandangan pribadi tentang pentingnya empati dalam pelayanan kesehatan.</p>
-    <button class="edit-btn" onclick="toggleEdit(this)">Edit</button>
-  </section>
-
-  <section id="sosmed" class="sosmed-content hidden">
-    <h2 contenteditable="false">Temui Saya di Sosmed</h2>
-    <p contenteditable="false">Klik tombol di bawah untuk mengunjungi akun sosial media saya.</p>
-    <div class="sosmed-links">
-      <a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a>
-      <a href="https://instagram.com/khilwa.nurse" class="ig" target="_blank">Instagram</a>
-      <a href="https://tiktok.com/@khilwa.nurse" class="tiktok" target="_blank">TikTok</a>
-      <a href="https://youtube.com/@khilwanurse" class="youtube" target="_blank">YouTube</a>
-    </div>
-    <button class="edit-btn" onclick="toggleEdit(this)">Edit</button>
-  </section>
+  <div id="content">
+    <p>Selamat datang di blog Khilwa. Klik menu di atas untuk memulai.</p>
+  </div>
 
   <script>
-    function showSection(id) {
-      const sections = ['home', 'cv', 'blog', 'sosmed'];
-      sections.forEach(sec => {
-        document.getElementById(sec).classList.add('hidden');
-      });
-      document.getElementById(id).classList.remove('hidden');
-    }
-
-    function toggleEdit(button) {
-      const parent = button.parentElement;
-      const elements = parent.querySelectorAll('[contenteditable]');
-      const editing = elements[0].getAttribute('contenteditable') === 'true';
-
-      elements.forEach(el => {
-        el.setAttribute('contenteditable', !editing);
-      });
-
-      button.textContent = editing ? 'Edit' : 'Simpan';
+    function loadSection(file) {
+      fetch(file)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('content').innerHTML = data;
+        });
     }
   </script>
 
