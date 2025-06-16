@@ -1,0 +1,78 @@
+/* Responsif Layout */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #f7f0ea;
+}
+
+nav .logo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav .menu {
+  display: flex;
+  gap: 15px;
+}
+
+nav .menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav .menu {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  nav .menu a {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+  }
+}
+
+.sosmed-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.sosmed-buttons a {
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.sosmed-buttons .wa { background-color: #25D366; }
+.sosmed-buttons .ig { background-color: #E1306C; }
+.sosmed-buttons .tt { background-color: #000000; }
+.sosmed-buttons .yt { background-color: #FF0000; }
+
+@media (max-width: 500px) {
+  .sosmed-buttons a {
+    flex: 1 1 45%;
+    text-align: center;
+  }
+}
