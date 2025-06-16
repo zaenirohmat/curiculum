@@ -12,123 +12,97 @@
       background: #fff;
       color: #333;
     }
-
     header {
       background: #f5ede6;
-      padding: 20px 30px;
+      padding: 20px 50px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #ddd;
     }
-
-    .logo {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2em;
-      color: #222;
-    }
-
-    nav {
-      display: flex;
-      gap: 20px;
-    }
-
-    nav a {
+    header nav a {
+      margin: 0 15px;
       text-decoration: none;
       color: #444;
       font-weight: 600;
-      font-size: 0.95em;
       cursor: pointer;
     }
-
+    .logo {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5em;
+      color: #222;
+    }
     section {
       padding: 40px 60px;
     }
-
     .hidden {
       display: none;
     }
-
-    .home-layout {
-      display: flex;
-      gap: 40px;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .home-layout img {
-      max-width: 400px;
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    .home-text {
-      max-width: 600px;
-      flex: 1;
-    }
-
-    .home-text h2 {
-      margin-top: 0;
-    }
-
-    .home-text p {
-      font-size: 1em;
+    .home-content p, .cv-content p, .blog-content p, .sosmed-content p {
+      font-size: 1.1em;
       line-height: 1.6;
     }
-
-    .sosmed-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
     .sosmed-links a {
-      flex: 1 1 45%;
-      text-align: center;
+      display: inline-block;
+      margin: 10px 20px 10px 0;
       text-decoration: none;
       color: #fff;
-      padding: 12px 15px;
-      border-radius: 8px;
-      font-weight: bold;
-      min-width: 120px;
+      background: #25d366;
+      padding: 10px 15px;
+      border-radius: 5px;
     }
-
-    .sosmed-links a:nth-child(1) { background: #25d366; }
     .sosmed-links a.ig { background: #E1306C; }
     .sosmed-links a.tiktok { background: #000; }
     .sosmed-links a.youtube { background: #FF0000; }
 
+    /* Gambar di Home */
+    .home-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .home-img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 10px;
+    }
     @media (max-width: 768px) {
-      header {
+      .home-wrapper {
         flex-direction: column;
-        align-items: flex-start;
       }
+    }
 
-      nav {
-        align-self: flex-end;
-        flex-direction: column;
-        gap: 10px;
-      }
-
-      section {
-        padding: 20px 15px;
-      }
-
-      .home-layout {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .home-text p {
-        font-size: 0.95em;
-      }
-
-      .sosmed-links a {
-        flex: 1 1 100%;
-      }
+    /* Blog CRUD */
+    #blog input, #blog textarea {
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 10px;
+      padding: 8px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    #blog button {
+      padding: 8px 16px;
+      background-color: #25d366;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    #daftarTulisan div {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    #daftarTulisan h3, #daftarTulisan p {
+      margin: 5px 0;
+    }
+    #daftarTulisan h3[contenteditable], #daftarTulisan p[contenteditable] {
+      background: #f9f9f9;
+      padding: 5px;
+      border-radius: 3px;
     }
   </style>
 </head>
@@ -145,9 +119,9 @@
   </header>
 
   <section id="home" class="home-content">
-    <div class="home-layout">
-      <img src="gambar.jpg" alt="Foto Khilwa" />
-      <div class="home-text">
+    <div class="home-wrapper">
+      <img src="WhatsApp Image 2025-06-16 at 11.44.49_b8612c6a.jpg" alt="Khilwa Nurse" class="home-img">
+      <div>
         <h2>Kegiatan Seorang Perawat</h2>
         <p>Perawat adalah garda terdepan dalam pelayanan kesehatan. Di blog ini, Khilwa berbagi kegiatan sehari-hari sebagai mahasiswa keperawatan: praktik klinik, edukasi pasien, pengalaman merawat pasien anak hingga lanjut usia, serta kegiatan sosial di masyarakat.</p>
       </div>
@@ -163,7 +137,12 @@
 
   <section id="blog" class="blog-content hidden">
     <h2>Tulisan Khilwa</h2>
-    <p>Temukan artikel dan catatan refleksi Khilwa seputar dunia keperawatan, tips manajemen waktu untuk mahasiswa, serta pandangan pribadi tentang pentingnya empati dalam pelayanan kesehatan.</p>
+    <div>
+      <input type="text" id="judulBaru" placeholder="Judul Tulisan" />
+      <textarea id="isiBaru" placeholder="Isi tulisan..."></textarea>
+      <button onclick="tambahTulisan()">Tambah Tulisan</button>
+    </div>
+    <div id="daftarTulisan"></div>
   </section>
 
   <section id="sosmed" class="sosmed-content hidden">
@@ -184,6 +163,58 @@
       });
       document.getElementById(id).classList.remove('hidden');
     }
+
+    let tulisan = [
+      {
+        judul: "Manajemen Waktu Mahasiswa",
+        isi: "Tips mengatur waktu antara kuliah, praktik, dan organisasi."
+      },
+      {
+        judul: "Empati dalam Pelayanan",
+        isi: "Mengapa empati penting dalam profesi perawat."
+      }
+    ];
+
+    function tampilkanTulisan() {
+      const container = document.getElementById("daftarTulisan");
+      container.innerHTML = "";
+      tulisan.forEach((item, index) => {
+        container.innerHTML += `
+          <div>
+            <h3 contenteditable="true" oninput="updateJudul(${index}, this.innerText)">${item.judul}</h3>
+            <p contenteditable="true" oninput="updateIsi(${index}, this.innerText)">${item.isi}</p>
+            <button onclick="hapusTulisan(${index})">Hapus</button>
+          </div>
+        `;
+      });
+    }
+
+    function tambahTulisan() {
+      const judul = document.getElementById("judulBaru").value.trim();
+      const isi = document.getElementById("isiBaru").value.trim();
+      if (judul && isi) {
+        tulisan.push({ judul, isi });
+        tampilkanTulisan();
+        document.getElementById("judulBaru").value = "";
+        document.getElementById("isiBaru").value = "";
+      }
+    }
+
+    function updateJudul(index, teks) {
+      tulisan[index].judul = teks;
+    }
+
+    function updateIsi(index, teks) {
+      tulisan[index].isi = teks;
+    }
+
+    function hapusTulisan(index) {
+      tulisan.splice(index, 1);
+      tampilkanTulisan();
+    }
+
+    // Jalankan pertama kali
+    tampilkanTulisan();
   </script>
 
 </body>
