@@ -2,6 +2,26 @@
 <p>Temukan artikel dan catatan refleksi Khilwa seputar dunia keperawatan, tips manajemen waktu untuk mahasiswa, serta pandangan pribadi tentang pentingnya empati dalam pelayanan kesehatan.</p>
 
 <div style="margin-top: 20px;">
-  <textarea rows="5" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" placeholder="Tulis artikel baru..."></textarea>
-  <button style="margin-top: 10px; padding: 10px 20px; background-color: #008CBA; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Simpan</button>
+  <textarea id="articleInput" rows="5" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" placeholder="Tulis artikel baru..."></textarea>
+  <button onclick="saveArticle()" style="margin-top: 10px; padding: 10px 20px; background-color: #008CBA; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Simpan</button>
 </div>
+
+<div id="articleList" style="margin-top: 30px;"></div>
+
+<script>
+  function saveArticle() {
+    const input = document.getElementById('articleInput');
+    const articleText = input.value.trim();
+    if (articleText) {
+      const list = document.getElementById('articleList');
+      const newArticle = document.createElement('div');
+      newArticle.style.border = '1px solid #ddd';
+      newArticle.style.padding = '10px';
+      newArticle.style.marginBottom = '10px';
+      newArticle.style.borderRadius = '5px';
+      newArticle.innerText = articleText;
+      list.prepend(newArticle);
+      input.value = '';
+    }
+  }
+</script>
